@@ -16,7 +16,7 @@
 </head>
 
 <body id="page-top">
-<div id="app">
+<div id="app"> // <--- add with Vue
     <div id="wrapper">
         <!-- Sidebar -->
         <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
@@ -322,7 +322,7 @@
 
                 <!-- Container Fluid-->
                 <div class="container-fluid" id="container-wrapper">
-                    <!-- component matched by the Vue route will render here -->
+                    <!-- component matched by the Vue route will render here (add with Vue) -->
                     <router-view></router-view>
                 </div>
                 <!---Container Fluid-->
