@@ -16,7 +16,7 @@
 </head>
 
 <body id="page-top">
-<div id="app"> // <--- add with Vue
+<div id="app"> {{--add with Vue--}}
     <div id="wrapper">
         <!-- Sidebar -->
         <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
