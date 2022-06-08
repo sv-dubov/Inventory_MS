@@ -5642,17 +5642,35 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    createEmployee: function createEmployee() {
+    onFileSelected: function onFileSelected(event) {
       var _this = this;
 
+      var file = event.target.files[0];
+
+      if (file.size > 1048770) {
+        Notification.image_validation();
+      } else {
+        var reader = new FileReader();
+
+        reader.onload = function (event) {
+          _this.form.photo = event.target.result;
+          console.log(event.target.result);
+        };
+
+        reader.readAsDataURL(file);
+      }
+    },
+    createEmployee: function createEmployee() {
+      var _this2 = this;
+
       axios.post('/api/employee', this.form).then(function () {
-        _this.$router.push({
+        _this2.$router.push({
           name: 'employee'
         });
 
         Notification.success();
       })["catch"](function (error) {
-        return _this.errors = error.response.data.errors;
+        return _this2.errors = error.response.data.errors;
       });
     }
   }
@@ -5671,7 +5689,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-//
 //
 //
 //
@@ -6183,6 +6200,16 @@ var Notification = /*#__PURE__*/function () {
         type: 'warning',
         layout: 'topRight',
         text: 'Oops!',
+        timeout: 1000
+      }).show();
+    }
+  }, {
+    key: "image_validation",
+    value: function image_validation() {
+      new Noty({
+        type: 'error',
+        layout: 'topRight',
+        text: 'Image size must be less than 1 MB',
         timeout: 1000
       }).show();
     }
@@ -36771,6 +36798,7 @@ var render = function () {
                             _c("input", {
                               staticClass: "custom-file-input",
                               attrs: { type: "file", id: "customFile" },
+                              on: { change: _vm.onFileSelected },
                             }),
                             _vm._v(" "),
                             _vm.errors.photo
