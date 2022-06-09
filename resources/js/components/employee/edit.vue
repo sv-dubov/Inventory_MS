@@ -1,5 +1,5 @@
 <template>
-    <!--Add employee Content -->
+    <!--Edit employee Content -->
     <div>
         <div class="row">
             <router-link to="/employees" class="btn btn-primary">All Employee</router-link>
@@ -12,9 +12,9 @@
                             <div class="col-lg-12">
                                 <div class="login-form">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Add employee</h1>
+                                        <h1 class="h4 text-gray-900 mb-4">Edit employee</h1>
                                     </div>
-                                    <form class="user" @submit.prevent="createEmployee" enctype="multipart/form-data">
+                                    <form class="user" @submit.prevent="editEmployee" enctype="multipart/form-data">
                                         <div class="form-group">
                                             <label>Full Name</label>
                                             <input type="text" class="form-control" id="exampleInputFullName" placeholder="Enter Full Name" v-model="form.name">
@@ -64,7 +64,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <button type="submit" class="btn btn-primary btn-block">Add</button>
+                                            <button type="submit" class="btn btn-primary btn-block">Update</button>
                                         </div>
                                     </form>
                                 </div>
@@ -87,17 +87,24 @@
         data() {
             return {
                 form: {
-                    name: null,
-                    email: null,
-                    address: null,
-                    phone: null,
-                    salary: null,
-                    n_id: null,
-                    join_at: null,
-                    photo: null
+                    name: '',
+                    email: '',
+                    address: '',
+                    phone: '',
+                    salary: '',
+                    n_id: '',
+                    join_at: '',
+                    photo: '',
+                    new_photo: ''
                 },
                 errors:{}
             }
+        },
+        created() {
+            let id = this.$route.params.id;
+            axios.get('/api/employees/' + id)
+                .then(({data}) => (this.form = data))
+                .catch(console.log('error'))
         },
         methods: {
             onFileSelected(event) {
@@ -107,14 +114,14 @@
                 } else {
                     let reader = new FileReader();
                     reader.onload = event => {
-                        this.form.photo = event.target.result;
-                        console.log(event.target.result);
+                        this.form.new_photo = event.target.result
                     };
                     reader.readAsDataURL(file);
                 }
             },
-            createEmployee() {
-                axios.post('/api/employee', this.form)
+            editEmployee() {
+                let id = this.$route.params.id;
+                axios.patch('/api/employees/' + id, this.form)
                     .then(() => {
                         this.$router.push({name: 'employees'});
                         Notification.success()
@@ -126,5 +133,3 @@
 </script>
 
 <style scoped>
-
-</style>

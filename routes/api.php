@@ -23,4 +23,4 @@ Route::group(['middleware' => 'api', 'prefix' => 'auth'], function () {
     Route::post('register', [AuthController::class, 'register']);
 });
 
-Route::apiResource('/employee', EmployeeController::class);
+Route::apiResource('/employees', EmployeeController::class);
