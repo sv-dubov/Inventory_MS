@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\EmployeeController;
 use App\Http\Controllers\Api\SupplierController;
 use App\Http\Controllers\AuthController;
@@ -26,3 +27,4 @@ Route::group(['middleware' => 'api', 'prefix' => 'auth'], function () {
 
 Route::apiResource('/employees', EmployeeController::class);
 Route::apiResource('/suppliers', SupplierController::class);
+Route::apiResource('/categories', CategoryController::class);
