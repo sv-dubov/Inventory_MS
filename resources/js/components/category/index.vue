@@ -59,7 +59,7 @@
         data() {
             return {
                 categories: [],
-                searchSupp: ''
+                searchCat: ''
             }
         },
         computed: {
