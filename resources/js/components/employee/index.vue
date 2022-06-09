@@ -32,7 +32,12 @@
                                             <tbody>
                                             <tr v-for="employee in filterSearch" :key="employee.id">
                                                 <td> {{ employee.name }}</td>
-                                                <td><img :src="employee.photo" id="emp_photo"></td>
+                                                <td v-if="employee.photo">
+                                                    <img :src="employee.photo" class="emp_photo">
+                                                </td>
+                                                <td v-else>
+                                                    <img src="/backend/img/no-photo.jpg" class="supp_photo">
+                                                </td>
                                                 <td>{{ employee.phone }}</td>
                                                 <td>{{ employee.salary }}</td>
                                                 <td>{{ employee.join_at }}</td>
@@ -119,7 +124,7 @@
 </script>
 
 <style scoped>
-    #emp_photo {
+    .emp_photo {
         height: 40px;
         width: 50px;
     }
