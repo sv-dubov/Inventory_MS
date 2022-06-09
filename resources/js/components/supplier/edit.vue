@@ -1,8 +1,8 @@
 <template>
-    <!--Edit employee Content -->
+    <!--Edit supplier Content -->
     <div>
         <div class="row">
-            <router-link to="/employees" class="btn btn-primary">All Employees</router-link>
+            <router-link to="/suppliers" class="btn btn-primary">All Suppliers</router-link>
         </div>
         <div class="row justify-content-center">
             <div class="col-xl-10 col-lg-12 col-md-9">
@@ -12,9 +12,9 @@
                             <div class="col-lg-12">
                                 <div class="login-form">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Edit employee</h1>
+                                        <h1 class="h4 text-gray-900 mb-4">Edit supplier</h1>
                                     </div>
-                                    <form class="user" @submit.prevent="editEmployee" enctype="multipart/form-data">
+                                    <form class="user" @submit.prevent="editSupplier" enctype="multipart/form-data">
                                         <div class="form-group">
                                             <label>Full Name</label>
                                             <input type="text" class="form-control" id="exampleInputFullName" placeholder="Enter Full Name" v-model="form.name">
@@ -37,19 +37,9 @@
                                             <small class="text-danger" v-if="errors.phone">{{ errors.phone[0] }}</small>
                                         </div>
                                         <div class="form-group">
-                                            <label>Salary</label>
-                                            <input type="text" class="form-control" id="exampleInputSalary" placeholder="Enter Salary" v-model="form.salary">
-                                            <small class="text-danger" v-if="errors.salary">{{ errors.salary[0] }}</small>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Nid</label>
-                                            <input type="text" class="form-control" id="exampleInputNid" placeholder="Enter Nid" v-model="form.n_id">
-                                            <small class="text-danger" v-if="errors.n_id">{{ errors.n_id[0] }}</small>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Join date</label>
-                                            <input type="date" class="form-control" id="exampleInputJoinAt" v-model="form.join_at">
-                                            <small class="text-danger" v-if="errors.join_at">{{ errors.join_at[0] }}</small>
+                                            <label>Shop Name</label>
+                                            <input type="text" class="form-control" id="exampleInputShopName" placeholder="Enter Shop Name" v-model="form.shop_name">
+                                            <small class="text-danger" v-if="errors.shop_name">{{ errors.shop_name[0] }}</small>
                                         </div>
                                         <div class="form-group">
                                             <div class="form-row">
@@ -91,9 +81,7 @@
                     email: '',
                     address: '',
                     phone: '',
-                    salary: '',
-                    n_id: '',
-                    join_at: '',
+                    shop_name: '',
                     photo: '',
                     new_photo: ''
                 },
@@ -102,7 +90,7 @@
         },
         created() {
             let id = this.$route.params.id;
-            axios.get('/api/employees/' + id)
+            axios.get('/api/suppliers/' + id)
                 .then(({data}) => (this.form = data))
                 .catch(console.log('error'))
         },
@@ -119,11 +107,11 @@
                     reader.readAsDataURL(file);
                 }
             },
-            editEmployee() {
+            editSupplier() {
                 let id = this.$route.params.id;
-                axios.patch('/api/employees/' + id, this.form)
+                axios.patch('/api/suppliers/' + id, this.form)
                     .then(() => {
-                        this.$router.push({name: 'employees'});
+                        this.$router.push({name: 'suppliers'});
                         Notification.success()
                     })
                     .catch(error => this.errors = error.response.data.errors)

@@ -114,7 +114,7 @@
                 }
             },
             createEmployee() {
-                axios.post('/api/employee', this.form)
+                axios.post('/api/employees', this.form)
                     .then(() => {
                         this.$router.push({name: 'employees'});
                         Notification.success()
