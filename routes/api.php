@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\EmployeeController;
+use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\SupplierController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
@@ -28,3 +29,4 @@ Route::group(['middleware' => 'api', 'prefix' => 'auth'], function () {
 Route::apiResource('/employees', EmployeeController::class);
 Route::apiResource('/suppliers', SupplierController::class);
 Route::apiResource('/categories', CategoryController::class);
+Route::apiResource('/products', ProductController::class);
