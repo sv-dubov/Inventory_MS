@@ -91,7 +91,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <button type="submit" class="btn btn-primary btn-block">Add</button>
+                                            <button type="submit" class="btn btn-primary btn-block">Update</button>
                                         </div>
                                     </form>
                                 </div>
