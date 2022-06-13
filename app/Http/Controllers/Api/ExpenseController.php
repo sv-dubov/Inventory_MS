@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Expense;
+use Carbon\Carbon;
 use DB;
 use Illuminate\Http\Request;
 
@@ -40,6 +41,7 @@ class ExpenseController extends Controller
         $data = array();
         $data['details'] = $request->details;
         $data['amount'] = $request->amount;
+        $data['updated_at'] = Carbon::now();
         DB::table('expenses')->where('id', $id)->update($data);
     }
 

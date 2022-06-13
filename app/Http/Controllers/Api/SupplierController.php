@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Supplier;
+use Carbon\Carbon;
 use DB;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
@@ -68,6 +69,7 @@ class SupplierController extends Controller
         $data['phone'] = $request->phone;
         $data['address'] = $request->address;
         $data['shop_name'] = $request->shop_name;
+        $data['updated_at'] = Carbon::now();
         $image = $request->new_photo;
 
         if ($image) {

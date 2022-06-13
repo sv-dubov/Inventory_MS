@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Employee;
+use Carbon\Carbon;
 use DB;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
@@ -74,6 +75,7 @@ class EmployeeController extends Controller
         $data['address'] = $request->address;
         $data['n_id'] = $request->n_id;
         $data['join_at'] = $request->join_at;
+        $data['updated_at'] = Carbon::now();
         $image = $request->new_photo;
 
         if ($image) {

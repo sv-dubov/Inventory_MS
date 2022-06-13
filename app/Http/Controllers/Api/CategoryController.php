@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use Carbon\Carbon;
 use DB;
 use Illuminate\Http\Request;
 
@@ -36,6 +37,7 @@ class CategoryController extends Controller
     {
         $data = array();
         $data['name'] = $request->name;
+        $data['updated_at'] = Carbon::now();
         DB::table('categories')->where('id', $id)->update($data);
     }
 

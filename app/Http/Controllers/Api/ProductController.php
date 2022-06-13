@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use Carbon\Carbon;
 use DB;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
@@ -90,6 +91,7 @@ class ProductController extends Controller
         $data['selling_price'] = $request->selling_price;
         $data['buying_date'] = $request->buying_date;
         $data['product_quantity'] = $request->product_quantity;
+        $data['updated_at'] = Carbon::now();
         $image = $request->new_image;
 
         if ($image) {
