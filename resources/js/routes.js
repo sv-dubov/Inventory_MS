@@ -32,6 +32,10 @@ let edit_salary = require('./components/salary/edit.vue').default;
 //Stock
 let stock = require('./components/product/stock.vue').default;
 let edit_stock = require('./components/product/edit-stock.vue').default;
+//Customer
+let customers = require('./components/customer/index.vue').default;
+let store_customer = require('./components/customer/create.vue').default;
+let edit_customer = require('./components/customer/edit.vue').default;
 
 export const routes = [
     {path: '/', component: login, name: '/'},
@@ -68,4 +72,8 @@ export const routes = [
     //Stock routes
     { path: '/stock', component: stock, name:'stock'},
     { path: '/edit-stock/:id', component: edit_stock, name:'edit-stock'},
+    //Customer routes
+    {path: '/customers', component: customers, name: 'customers'},
+    {path: '/store-customer', component: store_customer, name: 'store-customer'},
+    {path: '/edit-customer/:id', component: edit_customer, name: 'edit-customer'},
 ];

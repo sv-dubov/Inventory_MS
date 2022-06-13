@@ -94,6 +94,12 @@
                     </div>
                 </li>
                 <li class="nav-item">
+                    <router-link class="nav-link" to="stock">
+                        <i class="fas fa-database"></i>
+                        <span>Stock</span>
+                    </router-link>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap4"
                        aria-expanded="true" aria-controls="collapseBootstrap4">
                         <i class="fa fa-credit-card"></i>
@@ -122,10 +128,18 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <router-link class="nav-link" to="stock">
-                        <i class="fas fa-database"></i>
-                        <span>Stock</span>
-                    </router-link>
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap6"
+                       aria-expanded="true" aria-controls="collapseBootstrap6">
+                        <i class="fas fa-people-carry"></i>
+                        <span>Customers</span>
+                    </a>
+                    <div id="collapseBootstrap6" class="collapse" aria-labelledby="headingBootstrap"
+                         data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <router-link to="store-customer" class="collapse-item">Add customer</router-link>
+                            <router-link to="customers" class="collapse-item">All customers</router-link>
+                        </div>
+                    </div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable"

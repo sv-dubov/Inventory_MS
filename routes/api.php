@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\CategoryController;
+use App\Http\Controllers\Api\CustomerController;
 use App\Http\Controllers\Api\EmployeeController;
 use App\Http\Controllers\Api\ExpenseController;
 use App\Http\Controllers\Api\ProductController;
@@ -33,6 +34,7 @@ Route::apiResource('/suppliers', SupplierController::class);
 Route::apiResource('/categories', CategoryController::class);
 Route::apiResource('/products', ProductController::class);
 Route::apiResource('/expenses', ExpenseController::class);
+Route::apiResource('/customers', CustomerController::class);
 
 Route::post('/salary/paid/{id}', [SalaryController::class, 'paid']);
 Route::get('/salary', [SalaryController::class, 'allSalary']);
