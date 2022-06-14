@@ -38,6 +38,10 @@ let store_customer = require('./components/customer/create.vue').default;
 let edit_customer = require('./components/customer/edit.vue').default;
 //POS
 let pos = require('./components/pos/point-of-sale.vue').default;
+//Order
+let orders = require('./components/order/orders.vue').default;
+let view_order = require('./components/order/view-order.vue').default;
+let search_order = require('./components/order/search-order.vue').default;
 
 export const routes = [
     {path: '/', component: login, name: '/'},
@@ -80,4 +84,8 @@ export const routes = [
     {path: '/edit-customer/:id', component: edit_customer, name: 'edit-customer'},
     //POS routes
     { path: '/pos', component: pos, name:'pos'},
+    //Order routes
+    { path: '/orders', component: orders, name:'orders'},
+    { path: '/view-order/:id', component: view_order, name:'view-order'},
+    { path: '/search-order', component: search_order, name:'search-order'},
 ];

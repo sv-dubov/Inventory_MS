@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\CustomerController;
 use App\Http\Controllers\Api\EmployeeController;
 use App\Http\Controllers\Api\ExpenseController;
+use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\PosController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\SalaryController;
@@ -54,3 +55,10 @@ Route::get('/cart/increment/{id}', [CartController::class, 'incrementCart']);
 Route::get('/cart/decrement/{id}', [CartController::class, 'decrementCart']);
 
 Route::get('/vats', [CartController::class, 'vats']);
+
+Route::post('/order/done', [PosController::class, 'orderDone']);
+
+Route::get('/orders', [OrderController::class, 'todayOrders']);
+Route::get('/order/details/{id}', [OrderController::class, 'orderDetails']);
+Route::get('/order/details/all/{id}', [OrderController::class, 'orderDetailsAll']);
+Route::post('/order/search', [PosController::class, 'searchOrder']);

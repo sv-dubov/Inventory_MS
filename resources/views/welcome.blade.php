@@ -147,6 +147,20 @@
                     </div>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap7"
+                       aria-expanded="true" aria-controls="collapseBootstrap7">
+                        <i class="far fa-clipboard"></i>
+                        <span>Orders</span>
+                    </a>
+                    <div id="collapseBootstrap7" class="collapse" aria-labelledby="headingBootstrap"
+                         data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <router-link to="orders" class="collapse-item">Today's orders</router-link>
+                            <router-link to="/search-order" class="collapse-item">Search order</router-link>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable"
                        aria-expanded="true"
                        aria-controls="collapseTable">
